@@ -1,0 +1,19 @@
+<h1>Account</h1>
+<% if user_signed_in?%>
+<%= link_to "new expense",  new_account_path%> 
+<div>
+<table>
+<% @accounts.each do |account| %>
+      
+      <tr>
+
+        <td><%= account.expense %></td>
+        <td><%= account.money %></td>
+        <td><%= link_to 'Show', account %></td>
+        <td><%= link_to 'Edit', edit_account_path(account) %></td>
+        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+</table>   
+</div>
+<%end %>

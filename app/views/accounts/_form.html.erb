@@ -1,0 +1,32 @@
+<%= form_for(@account) do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    花費種類
+    <br>
+    <%= f.select :expense, '
+     <option value="Home" selected="selected">Home</option>
+     <option value="Personal">Personal</option>
+     <option value="Food">Food</option>
+     <option value="Car">Car</option>
+     <option value="Shopping">Shopping</option>'.html_safe %>
+  </div>
+  <div class="field">
+    金額
+    <br>
+    <%= f.text_field :money %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
